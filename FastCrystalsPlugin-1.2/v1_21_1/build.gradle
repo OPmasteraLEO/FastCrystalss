@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'xyz.exyron.fastcrystals'
+version '1.0'
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21)) // Ensure you're using Java 21
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url 'https://repo.codemc.org/repository/nms/' }
+}
+
+dependencies {
+    // Update to 1.21.1 version
+    compileOnly 'org.spigotmc:spigot:1.21.1-R0.1-SNAPSHOT' // Updated to 1.21.1
+    compileOnly 'org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT' // Updated to 1.21.1
+
+    // Ensure 'shared' project is still valid
+    compileOnly project(':shared')
+}
